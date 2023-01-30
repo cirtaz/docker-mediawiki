@@ -1,0 +1,34 @@
+{
+	"acme.com": {
+		"connection": {
+			"server": "my-domain-controller.acme.com",
+			"port": "389",
+			"user": "CN=MediawikiAuthenticator,OU=Users,DC=acme,DC=com",
+			"pass": "foobar",
+			"enctype": "clear",
+			"options": {
+				"LDAP_OPT_DEREF": 1
+			},
+			"basedn": "dc=acme,dc=com",
+			"userbasedn": "dc=acme,dc=com",
+			"groupbasedn": "dc=acme,dc=com",
+			"searchattribute": "samaccountname",
+            "searchstring": "USER-NAME@acme.local",
+			"usernameattribute": "samaccountname",
+			"realnameattribute": "cn",
+			"emailattribute": "mail",
+			"grouprequest": "MediaWiki\\Extension\\LDAPProvider\\UserGroupsRequest\\UserMemberOf::factory",
+			"presearchusernamemodifiers": [ "spacestounderscores", "lowercase" ]
+		},
+		"userinfo": [],
+		"authorization": [],
+		"groupsync": {
+			"mapping": {
+				"engineering": "CN=EngineeringCoreTeam,OU=Groups,DC=acme,DC=com",
+				"bureaucrat": "CN=Mediawiki Admins,OU=Groups,DC=acme,DC=com",
+				"interface-admin": "CN=Mediawiki Admins,OU=Groups,DC=acme,DC=com",
+				"sysop": "CN=Mediawiki Admins,OU=Groups,DC=acme,DC=com"
+			}
+		}
+	}
+}
